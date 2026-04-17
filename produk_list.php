@@ -39,7 +39,7 @@ $rs = $obj_produk->index();
           if (!empty($produk['foto']) && file_exists($foto_path)) {
             $src = $foto_path;
           } else {
-            $src = 'img/noimage.png';
+            $src = 'img/nophoto.png';
           }
           ?>
           <img src="<?= $src ?>" width="50%" alt="Foto Produk" />

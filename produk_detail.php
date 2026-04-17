@@ -7,13 +7,15 @@ $rs = $model->getProduk($id); // panggil fungsi u/ mendetailkan produk
   <div class="row g-0">
     <div class="col-md-4">
       <?php
-      if (!empty($rs['foto'])) {
+      $foto_path = 'img/' . $rs['foto'];
+
+      if (!empty($rs['foto']) && file_exists($foto_path)) {
       ?>
         <img src="img/<?= $rs['foto'] ?>" class="img-fluid rounded-start" alt="..." />
       <?php
       } else {
       ?>
-        <img src="img/nophoto.jpg" class="img-fluid rounded-start" alt="..." />
+        <img src="img/nophoto.png" class="img-fluid rounded-start" alt="..." />
       <?php } ?>
     </div>
     <div class="col-md-8">
