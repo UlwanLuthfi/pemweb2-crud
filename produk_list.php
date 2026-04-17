@@ -34,14 +34,15 @@ $rs = $obj_produk->index();
         <td><?= $produk['stok'] ?></td>
         <td width="15%">
           <?php
-          if (!empty($produk['foto'])) {
-          ?>
-            <img src="img/<?= $produk['foto'] ?>" width="50%" />
-          <?php
+          $foto_path = 'img/' . $produk['foto'];
+
+          if (!empty($produk['foto']) && file_exists($foto_path)) {
+            $src = $foto_path;
           } else {
+            $src = 'img/noimage.png';
+          }
           ?>
-            <img src="img/noimage.png" width="50%" />
-          <?php } ?>
+          <img src="<?= $src ?>" width="50%" alt="Foto Produk" />
         </td>
         <td>
           <form method="POST" action="controller/produkController.php">
