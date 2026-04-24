@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +11,10 @@
 
 <body>
   <?php
-        include_once 'koneksi.php';
-        include_once 'models/Jenis.php';
-        include_once 'models/Produk.php';
+  include_once 'koneksi.php';
+  include_once 'models/Jenis.php';
+  include_once 'models/Produk.php';
+  include_once 'models/Member.php';
   ?>
   <div class="container-fluid">
 

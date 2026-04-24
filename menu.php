@@ -31,9 +31,35 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
+        <?php
+        session_start();
+
+        if (!isset($_SESSION['MEMBER'])) { //----belum/gagal login------
+        ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?hal=login">Login</a>
+          </li>
+        <?php
+        } else { //---------user sudah login dan terotentikasi---------------
+        ?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <?= $_SESSION['MEMBER']['fullname'] . ' - ' . $_SESSION['MEMBER']['role'] ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <?php
+              if ($_SESSION['MEMBER']['role'] == 'admin') {
+              ?>
+                <li><a class="dropdown-item" href="#">Kelola User</a></li>
+              <?php } ?>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            </ul>
+          </li>
+        <?php } ?>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
