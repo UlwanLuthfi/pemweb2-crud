@@ -19,7 +19,7 @@ if (!empty($rs)) {
   //simpan session
   $_SESSION['MEMBER'] = $rs;
   // arahkan ke landing page
-  header('Location:http://localhost/rwd/index.php?hal=produk_list');
+  header('Location: ../index.php?hal=produk_list');
 } else { //-------gagal login----------
   echo '<script>alert("Email/Password Anda Salah!!!");history.go(-1);</script>';
 }
